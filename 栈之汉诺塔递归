@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+
+int hanoi(int n, char x, char y, char z)
+{
+	static count = 0;
+	if (n>=1)
+	{
+		hanoi(n-1, x, z, y);
+		cout<<"第"<<n<<"号盘由"<<x<<"->"<<z<<endl;
+		count++;
+		hanoi(n-1, y, x, z);
+
+		
+	}
+
+	return count;
+}
+int main()
+{
+	cout<<"移动"<<hanoi(3,'A','B','C')<<"次";
+	return 0;
+}
